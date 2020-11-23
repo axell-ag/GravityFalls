@@ -10,13 +10,13 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _angle = Random.Range(-90, 90);
-        _speed = Random.Range(1f, 1.4f);   
+        _speed = Random.Range(1f, 1.4f);
+        //StartCoroutine(IncreaseSpeed());
     }
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, _destroyPosition.transform.position, _speed * Time.deltaTime);
         transform.Rotate(new Vector3(0, 0, _angle) * Time.deltaTime);
-        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,5 +24,10 @@ public class Enemy : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+    IEnumerator IncreaseSpeed()
+    {
+        yield return new WaitForSeconds(30f);
+        _speed = Random.Range(1f, 3f);
     }
 }
