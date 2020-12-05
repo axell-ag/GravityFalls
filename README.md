@@ -1,6 +1,6 @@
 # HyperCasual
 
-This is a small platformer workbench built using C#/Unity
+This is a small hyper casual 2D game built with Unity / C #
 
 A fragment from the game:
 
